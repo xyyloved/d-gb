@@ -928,7 +928,24 @@ document.getElementById('chat').addEventListener('scroll',function(){
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
   navigator.serviceWorker.register('sw.js').catch(function(){});
 }
-</script>/* ============ 剧情加强补丁 v1 ============ */
+</script>/* ============ 选项精简补丁 ============ */
+var _roPool=randOptPool;
+randOptPool=function(){ return _roPool().slice(0,3); };
+rOpts=function(){
+  var picked=randOptPool();
+  showOpts(picked.map(function(o){return {t:o.t,fn:o.f};}));
+};
+(function(){
+  var tb=document.getElementById('topbar');
+  if(!tb||document.getElementById('btnFull'))return;
+  var b=document.createElement('button');
+  b.className='tbtn'; b.id='btnFull'; b.textContent='📋 功能';
+  b.onclick=function(){
+    if(MODE==='fixed'){toast('固定线是剧情选项');return;}
+    fullMenu();
+  };
+  tb.insertBefore(b,tb.lastChild);
+})();/* ============ 剧情加强补丁 v1 ============ */
 var SCENES=[
 /* 0 羞耻试探 */
 [{p:'他的出租屋 · 深夜',t:['台灯只开了一盏，光斜着，照得到桌子照不到人。','他坐在床沿，膝盖并着，手规规矩矩放在腿上。','你把袋子放在他脚边，没打开，先看他。']},
