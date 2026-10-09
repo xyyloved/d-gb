@@ -1,0 +1,10 @@
+{
+  "name": "四爱·灌肠模拟器",
+  "short_name": "模拟器",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffeef5",
+  "theme_color": "#ff9ec4"
+}
